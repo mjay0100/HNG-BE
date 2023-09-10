@@ -1,11 +1,8 @@
-const express = require("express");
-const app = express();
+const app = require("express")();
 const moment = require("moment");
 const PORT = 3000;
 const current_day = moment().format("dddd");
 const utc_time = moment.utc().format();
-
-app.get("/", (req, res) => res.send("Hello World!"));
 
 app.get("/info", (req, res) => {
   const { slack_name, track } = req.query;
@@ -19,8 +16,8 @@ app.get("/info", (req, res) => {
     current_day,
     utc_time,
     track,
-    github_file_url: "",
-    github_repo_url: "",
+    github_file_url: "https://github.com/mjay0100/HNG-BE/blob/main/index.js",
+    github_repo_url: "https://github.com/mjay0100/HNG-BE",
     status_code: status,
   };
 
